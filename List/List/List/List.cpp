@@ -2,37 +2,47 @@
 //
 
 #include "stdafx.h"
+
 class List{
-public:
+private:
 	Node * head;
 	Node * tail;
+	int size;
+	struct Node{
+		public:
+			Node* prev;
+			Node* next;
+			int data;
+			explicit Node(int initData, Node * p = NULL, Node* n = NULL) : prev(p), next(n), data (initData) {}
+	};
+public:
+	
+	explicit List () : head(NULL), tail(NULL), size(0){
+	}
+	int size(){
+		return size;
+	}
+	void add(int data){ //adds to end of list every time
+		if(head == NULL){
+			head = new Node(data, NULL, NULL);
+			tail = head;
+			size++;
+		} else {
+			if(head->next== tail){
+
+			}
+		}
+	}
+
 };
 
 class Node {
-	Node* prev;
-	Node* next;
-	int data;
-
-	explicit Node(int initData) : prev(NULL), next(NULL), data (initData){
-
-	}
-
-	Node next(){
-		return *next;
-	}
-	Node prev(){
-		return *prev;
-	}
-
-	int data(){
-		return data;
-	}
 
 };
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	return 0;
+	
 }
 
