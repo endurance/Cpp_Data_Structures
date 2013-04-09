@@ -7,11 +7,12 @@ using namespace std;
 
 int main(){
 
-	IntCell m;
+	int **p;
+	int *j = new int (5);
+	
+	p = &j;
 
-	m.write(5);
-	cout<< "Cell contents: " << m.read() << endl;
-
+	cout<< **p << endl;
 	system("pause");
 	return 0;
 }
