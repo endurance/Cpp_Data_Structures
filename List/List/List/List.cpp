@@ -2,6 +2,9 @@
 //
 
 #include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 class List{
 private:
@@ -18,18 +21,19 @@ private:
 	
 public:
 	
-	explicit List () : head(NULL), tail(NULL), size(0){
+	List () : head(NULL), tail(NULL), size(0){
 	}
 	int size(){
 		return size;
 	}
 
 	/*********
-	*Node Add method.
+	*LinkedList Add method.
 	*Uses Tail to add to the end of the list.
 	*First case tests if list is empty, allocates data for new head and sets the tail to be the same
 	*if head is the tail, there is only 1 element. make tail the new head -> next.
 	*Other than that, add new element to end of list, and have the tail->next point to this element
+	*Increment Size regardless of case.
 	***********/
 	void add(int data){ 
 		if(head == NULL){
@@ -51,6 +55,9 @@ public:
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	
+	List * stuff = new List();
+
+	system("pause");
+	return 0;
 }
 
