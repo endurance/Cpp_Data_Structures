@@ -5,16 +5,17 @@
 
 class List{
 private:
-	Node * head;
-	Node * tail;
-	int size;
 	struct Node{
 		public:
 			Node* prev;
 			Node* next;
 			int data;
-			explicit Node(int initData, Node * p = NULL, Node* n = NULL) : prev(p), next(n), data (initData) {}
+			explicit Node(int initData, Node * n = NULL, Node* p = NULL) : next(n), prev(p), data (initData) {}
 	};
+	Node * head;
+	Node * tail;
+	int size;
+	
 public:
 	
 	explicit List () : head(NULL), tail(NULL), size(0){
@@ -22,23 +23,30 @@ public:
 	int size(){
 		return size;
 	}
-	void add(int data){ //adds to end of list every time
+
+	/*********
+	*Node Add method.
+	*Uses Tail to add to the end of the list.
+	*First case tests if list is empty, allocates data for new head and sets the tail to be the same
+	*if head is the tail, there is only 1 element. make tail the new head -> next.
+	*Other than that, add new element to end of list, and have the tail->next point to this element
+	***********/
+	void add(int data){ 
 		if(head == NULL){
 			head = new Node(data, NULL, NULL);
 			tail = head;
-			size++;
+		} else 
+		if(head == tail){
+			tail = new Node(data,NULL,head);
+			head->next = tail;
 		} else {
-			if(head->next== tail){
-
-			}
+			tail->next = new  Node(data, NULL, tail);
 		}
+		size++;
 	}
 
 };
 
-class Node {
-
-};
 
 
 int _tmain(int argc, _TCHAR* argv[])
